@@ -35,8 +35,8 @@ case "$1" in
 		echo -n $"Starting $PROG: "
 		ulimit -n ${FILENO:-65535}
 		touch "${PIDFILE}"
-		chown "${USER}" "${PIDFILE}"
-		daemon --user "${USER}" --pidfile="${PIDFILE}" \
+		#chown "${USER}" "${PIDFILE}"
+		daemon --pidfile="${PIDFILE}" \
 			"${ENGINE_USR}/services/${NAME}/${NAME}.py" \
 				--pidfile="${PIDFILE}" \
 				--background \

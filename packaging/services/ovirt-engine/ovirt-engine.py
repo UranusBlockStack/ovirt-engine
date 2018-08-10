@@ -203,10 +203,10 @@ class Daemon(service.Daemon):
 
     def daemonSetup(self):
 
-        if os.geteuid() == 0:
-            raise RuntimeError(
-                _('This service cannot be executed as root')
-            )
+       # if os.geteuid() == 0:
+       #     raise RuntimeError(
+       #         _('This service cannot be executed as root')
+       #     )
 
         if not os.path.exists(self._defaults):
             raise RuntimeError(
