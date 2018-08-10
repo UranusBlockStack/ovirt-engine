@@ -185,7 +185,7 @@ class Plugin(plugin.PluginBase):
                 ),
                 content=[],
                 mode=0o644,
-                dmode=0o755,
+                dmode=0o777,
                 owner=self.environment[oengcommcons.SystemEnv.USER_VDSM],
                 group=self.environment[oengcommcons.SystemEnv.GROUP_KVM],
                 downer=self.environment[
