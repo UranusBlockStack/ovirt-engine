@@ -13,6 +13,8 @@ import org.ovirt.engine.core.common.queries.VdcQueryType;
 public interface BackendLocal {
     VdcReturnValueBase runAction(VdcActionType actionType, VdcActionParametersBase parameters);
 
+    VdcReturnValueBase RunActionByImageUpload(VdcActionType actionType, VdcActionParametersBase parameters);
+
     VDSBrokerFrontend getResourceManager();
 
     VdcQueryReturnValue runQuery(VdcQueryType actionType, VdcQueryParametersBase parameters);

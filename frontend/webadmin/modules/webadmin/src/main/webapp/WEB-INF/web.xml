@@ -135,6 +135,16 @@
         <url-pattern>/404.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ImageUpload</servlet-name>
+        <servlet-class>org.ovirt.engine.ui.frontend.server.gwt.ImageUploadServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ImageUpload</servlet-name>
+        <url-pattern>/imageUpload</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>MethodNotAllowedForwardServlet</servlet-name>
         <url-pattern>/405.html</url-pattern>

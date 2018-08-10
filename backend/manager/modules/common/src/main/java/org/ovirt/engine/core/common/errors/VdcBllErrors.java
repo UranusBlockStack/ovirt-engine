@@ -499,6 +499,10 @@ public enum VdcBllErrors {
     // migration cancel failed, VM doesn't exist
     MIGRATION_CANCEL_ERROR_NO_VM(5100),
 
+    // Storage image manager
+    STORAGE_IMAGE_MANAGER_REMOVE_FAILED(9753),
+    STORAGE_IMAGE_MANAGER_RENAME_FAILED(9754),
+
     SESSION_ERROR(9999);
 
     private int intValue;

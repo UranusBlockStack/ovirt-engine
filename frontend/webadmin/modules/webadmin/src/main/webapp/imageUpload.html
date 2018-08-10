@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>CTVM Image Upload</title>
+        <script language="JavaScript" type="text/javascript">
+            function queryParams() {
+                var params = {};
+                var pos = location.href.indexOf("?");
+                if(pos > 0) {
+                    var urlParams = location.href.substr(pos + 1);
+                    var tmpParams = urlParams.split("&");
+                    for(i = 0; i < tmpParams.length; i++){
+                        pos = tmpParams[i].indexOf("=");
+                        if(pos > 0){
+                            params[tmpParams[i].substr(0, pos)] = tmpParams[i].substr(pos + 1);
+                        }
+                    }
+                }
+                return params;
+            }
+
+            function filterFileType(imageUpload) {
+                var fileName = imageUpload.value;
+                var pos = fileName.lastIndexOf(".");
+                var ext = fileName.substr(pos, fileName.length).toLowerCase();
+                document.getElementById("submitButton").disabled = (ext != ".iso" && ext != ".vfd");
+            }
+
+            function formSubmit() {
+                document.getElementById("imageUploadSpan").style.display = "none";
+                document.getElementById("imageUploadWaitSpan").style.display = "";
+            }
+
+            function init() {
+                var params = queryParams();
+                if(typeof(params["sdid"]) == "undefined") {
+                    if(typeof(params["success"]) == "undefined" || params["success"] == "false") {
+                        document.getElementById("imageUploadFaileSpan").style.display = "";
+                    } else {
+                        document.getElementById("imageUploadSuccessSpan").style.display = "";
+                    }
+                } else {
+                    document.getElementById("sdid").value = params["sdid"];
+                    document.getElementById("imageUploadSpan").style.display = "";
+                }
+            }
+
+        </script>
+    </head>
+
+    <body onload="init()">
+        <form enctype="multipart/form-data" method="post" action="imageUpload" onsubmit="formSubmit()">
+        <input id="sdid" name="sdid" type="hidden" value=""/>
+        <table width="100%" height="170px" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="center" valign="middle">
+                <table>
+                <tr>
+                    <td align="center">
+                        <span id="imageUploadSpan" style="display: none;">
+                            <input type="file" name="imageUpload" onchange="filterFileType(this)"/>
+                            <input id="submitButton" type="submit" disabled="true" value="上传">
+                        </span>
+                        <span id="imageUploadWaitSpan" style="display: none;"><img src="wait.gif" /></span>
+                        <span id="imageUploadSuccessSpan" style="display: none;">上传成功，刷新后显示上传文件。</span>
+                        <span id="imageUploadFaileSpan" style="display: none;">上传失败，请在日志中查看明细。</span>
+                    </td>
+                </tr>
+                </table>
+            </td>
+        </tr>
+        </table>
+       </form>
+    </body>
+</html>

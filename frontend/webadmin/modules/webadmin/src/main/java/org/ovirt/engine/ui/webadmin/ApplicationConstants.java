@@ -4,6 +4,22 @@ import org.ovirt.engine.ui.common.CommonApplicationConstants;
 
 public interface ApplicationConstants extends CommonApplicationConstants {
 
+    // Storage Image Manager
+    @DefaultStringValue("Select file :")
+    String storageImageManagerUpload();
+
+    @DefaultStringValue("New image name :")
+    String storageImageManagerNewName();
+
+    @DefaultStringValue("Upload")
+    String storageIsoUploadLabel();
+
+    @DefaultStringValue("Rename")
+    String storageIsoRenameLabel();
+
+    @DefaultStringValue("Remove")
+    String storageIsoRemoveLabel();
+
     @DefaultStringValue("oVirt Engine Web Administration")
     String applicationTitle();
 

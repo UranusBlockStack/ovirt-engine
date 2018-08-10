@@ -519,6 +519,10 @@ import org.ovirt.engine.ui.webadmin.section.main.view.tab.virtualMachine.SubTabV
 import org.ovirt.engine.ui.webadmin.section.main.view.tab.virtualMachine.SubTabVirtualMachineSnapshotView;
 import org.ovirt.engine.ui.webadmin.section.main.view.tab.virtualMachine.SubTabVirtualMachineVirtualDiskView;
 import org.ovirt.engine.ui.webadmin.section.main.view.tab.virtualMachine.VirtualMachineSubTabPanelView;
+import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.storage.StorageImageRenamePopupPresenterWidget;
+import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.storage.StorageImageUploadPopupPresenterWidget;
+import org.ovirt.engine.ui.webadmin.section.main.view.popup.storage.StorageImageRenamePopupView;
+import org.ovirt.engine.ui.webadmin.section.main.view.popup.storage.StorageImageUploadPopupView;
 
 /**
  * GIN module containing WebAdmin GWTP presenter bindings.
@@ -1598,5 +1602,15 @@ public class PresenterModule extends BasePresenterModule {
         bindPresenterWidget(IscsiBondPopupPresenterWidget.class,
                 IscsiBondPopupPresenterWidget.ViewDef.class,
                 IscsiBondPopupView.class);
+
+        // Storage Image Rename
+        bindPresenterWidget(StorageImageRenamePopupPresenterWidget.class,
+                StorageImageRenamePopupPresenterWidget.ViewDef.class,
+                StorageImageRenamePopupView.class);
+
+        // Storage Image Upload
+        bindPresenterWidget(StorageImageUploadPopupPresenterWidget.class,
+                StorageImageUploadPopupPresenterWidget.ViewDef.class,
+                StorageImageUploadPopupView.class);
     }
 }

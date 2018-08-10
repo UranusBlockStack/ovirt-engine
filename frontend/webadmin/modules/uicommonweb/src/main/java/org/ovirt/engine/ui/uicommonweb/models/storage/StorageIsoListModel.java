@@ -31,9 +31,18 @@ public class StorageIsoListModel extends SearchableListModel<StorageDomain, Repo
         setHashName("images"); //$NON-NLS-1$
 
         setImportImagesCommand(new UICommand("Import", this)); //$NON-NLS-1$
-        updateActionAvailability();
 
         setIsTimerDisabled(true);
+
+        setUploadCommand(new UICommand("Upload", this)); //$NON-NLS-1$
+        setRenameCommand(new UICommand("Rename", this)); //$NON-NLS-1$
+        setRemoveCommand(new UICommand("Remove", this)); //$NON-NLS-1$
+        cancelCommand = new UICommand("Cancel", this); //$NON-NLS-1$
+
+        cancelCommand.setIsCancel(true);
+        cancelCommand.setTitle(ConstantsManager.getInstance().getConstants().cancel());
+
+        updateActionAvailability();
     }
 
     private UICommand importImagesCommand;
@@ -55,6 +64,8 @@ public class StorageIsoListModel extends SearchableListModel<StorageDomain, Repo
         {
             getSearchCommand().execute();
         }
+
+        updateActionAvailability();
     }
 
     @Override
@@ -171,12 +182,28 @@ public class StorageIsoListModel extends SearchableListModel<StorageDomain, Repo
         @SuppressWarnings("unchecked")
         ArrayList<RepoImage> selectedImages =
                 getSelectedItems() != null ? (ArrayList<RepoImage>) getSelectedItems() : new ArrayList<RepoImage>();
-        if (storageDomain != null && storageDomain.getStorageType() == StorageType.GLANCE) {
-            getImportImagesCommand().setIsAvailable(true);
-            getImportImagesCommand().setIsExecutionAllowed(selectedImages.size() > 0);
-        } else {
+        if (storageDomain != null) {
+            getUploadCommand().setIsAvailable(false);
+            getRenameCommand().setIsAvailable(false);
+            getRemoveCommand().setIsAvailable(false);
             getImportImagesCommand().setIsAvailable(false);
+            if(storageDomain.getStorageType() == StorageType.GLANCE) {
+                getImportImagesCommand().setIsAvailable(true);
+                getImportImagesCommand().setIsExecutionAllowed(selectedImages.size() > 0);
+            } else {
+                getUploadCommand().setIsAvailable(true);
+                getRenameCommand().setIsAvailable(true);
+                getRemoveCommand().setIsAvailable(true);
+                getUploadCommand().setIsExecutionAllowed(storageDomain.getStatus() == StorageDomainStatus.Active);
+                getRenameCommand().setIsExecutionAllowed(selectedImages.size() == 1);
+                getRemoveCommand().setIsExecutionAllowed(selectedImages.size() > 0);
+            }
         }
+    }
+
+    protected void onSelectedItemChanged() {
+        super.onSelectedItemChanged();
+        updateActionAvailability();
     }
 
     @Override
@@ -190,9 +217,18 @@ public class StorageIsoListModel extends SearchableListModel<StorageDomain, Repo
         super.executeCommand(command);
 
         if (getImportImagesCommand().equals(command)) {
-            importImages();
-        }
-        else if (command.getName().equals("Cancel")) { //$NON-NLS-1$
+             importImages();
+         } else if (command == getUploadCommand()) {
+             upload();
+         } else if (command == getRenameCommand()) {
+             rename();
+         } else if (command == getRemoveCommand()) {
+             remove();
+         } else if (command.getName().equals("OnRename")) { //$NON-NLS-1$
+             onRename();
+         } else if (command.getName().equals("OnRemove")) { //$NON-NLS-1$
+            onRemove();
+         } else if (command.getName().equals("Cancel") || command.getName().equals("OnClose")) { //$NON-NLS-1$ //$NON-NLS-2$
             cancel();
         }
     }

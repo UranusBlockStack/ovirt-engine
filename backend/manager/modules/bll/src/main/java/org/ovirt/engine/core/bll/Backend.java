@@ -379,6 +379,17 @@ public class Backend implements BackendInternal, BackendCommandObjectsHandler {
         return runActionImpl(actionType, parameters, false, null);
     }
 
+   @Override
+   public VdcReturnValueBase RunActionByImageUpload(VdcActionType actionType, VdcActionParametersBase parameters) {
+       if(actionType == VdcActionType.StorageImageUpload) {
+           return runActionImpl(actionType, parameters, true, null);
+       } else {
+           VdcReturnValueBase returnValueBase = new VdcReturnValueBase();
+           returnValueBase.setSucceeded(false);
+           return returnValueBase;
+      }
+  }
+
     private VdcReturnValueBase notAllowToRunAction(VdcActionType actionType) {
         // Since reload of configuration values is not fully supported, we have to get this value from DB
         // and can not use the cached configuration.

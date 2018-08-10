@@ -722,6 +722,12 @@ rm -fr "%{buildroot}%{_mavenpomdir}"
 %endif
 
 #
+# Link apache common fileupload/io to engine.ear/lib
+#
+ln -s "%{engine_jboss_modules}/org/apache/commons/fileupload/main/commons-fileupload.jar" "%{buildroot}%{engine_ear}/lib/commons-fileupload.jar"
+ln -s "%{engine_jboss_modules}/org/apache/commons/io/main/commons-io.jar" "%{buildroot}%{engine_ear}/lib/commons-io.jar"
+
+#
 # Link dependencies to system provided
 #
 while read dst src; do

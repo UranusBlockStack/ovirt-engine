@@ -79,6 +79,27 @@ public class SubTabStorageIsoView extends AbstractSubTabTableView<StorageDomain,
             }
         });
 
+        getTable().addActionButton(new WebAdminButtonDefinition<RepoImage>(constants.storageIsoUploadLabel()) {
+            @Override
+            protected UICommand resolveCommand() {
+                return getDetailModel().getUploadCommand();
+           }
+        });
+
+        getTable().addActionButton(new WebAdminButtonDefinition<RepoImage>(constants.storageIsoRenameLabel()) {
+            @Override
+            protected UICommand resolveCommand() {
+                return getDetailModel().getRenameCommand();
+           }
+        });
+
+        getTable().addActionButton(new WebAdminButtonDefinition<RepoImage>(constants.storageIsoRemoveLabel()) {
+            @Override
+            protected UICommand resolveCommand() {
+                return getDetailModel().getRemoveCommand();
+           }
+        });
+
         getTable().showRefreshButton();
     }
 }

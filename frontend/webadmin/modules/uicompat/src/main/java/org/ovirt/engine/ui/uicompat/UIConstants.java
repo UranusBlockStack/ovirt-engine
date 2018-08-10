@@ -6,6 +6,18 @@ import com.google.gwt.i18n.client.Constants;
 
 public interface UIConstants extends com.google.gwt.i18n.client.Constants {
 
+    @DefaultStringValue("Upload Image file")
+    String storageImageUploadTitle();
+
+    @DefaultStringValue("Rename Image file")
+    String storageImageRenameTitle();
+
+    @DefaultStringValue("Remove Image file")
+    String storageImageRemoveTitle();
+
+    @DefaultStringValue("Are you sure you want to delete the selected item :")
+    String storageImageRemoveMsg();
+
     @DefaultStringValue("OK")
     String ok();
 
