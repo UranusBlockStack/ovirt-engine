@@ -1974,6 +1974,34 @@ public interface CommonApplicationConstants extends Constants {
 
     @DefaultStringValue("SPICE-HTML5 does not support SPICE Proxy.")
     String spiceHtml5DoesntSupportSpiceProxy();
+    
+    // Schedule Manager
+    @DefaultStringValue("Add")
+    String addSchedule();
+
+    @DefaultStringValue("Edit")
+    String editSchedule();
+
+    @DefaultStringValue("Remove")
+    String removeSchedule();
+
+    @DefaultStringValue("Name")
+    String nameSchedule();
+
+    @DefaultStringValue("Schedule")
+    String scheduleSchedule();
+
+    @DefaultStringValue("Object")
+    String objectSchedule();
+
+    @DefaultStringValue("Search")
+    String objectToSearch();
+
+    @DefaultStringValue("query")
+    String scheduleQuery();
+
+    @DefaultStringValue("Strategy")
+    String strategySchedule();
 
     //Numa
     @DefaultStringValue("Drag a vNUMA onto a NUMA node to pin the vNUMA to that node.")

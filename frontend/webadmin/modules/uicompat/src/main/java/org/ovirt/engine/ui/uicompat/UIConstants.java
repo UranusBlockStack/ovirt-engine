@@ -2709,4 +2709,31 @@ public interface UIConstants extends com.google.gwt.i18n.client.Constants {
 
     @DefaultStringValue("Warning : Recommendations for geo-replication not met -")
     String geoReplicationRecommendedConfigViolation();
+
+    @DefaultStringValue("Schedule")
+    String scheduleTitle();
+
+    @DefaultStringValue("Remove Schedule")
+    String removeScheduleTitle();
+
+    @DefaultStringValue("Are you sure you want to delete the selected item :")
+    String removeScheduleMsg();
+
+    @DefaultStringValue("Add Schedule")
+    String addScheduleTitle();
+
+    @DefaultStringValue("Edit Schedule")
+    String editScheduleTitle();
+
+    @DefaultStringValue("Are you sure you want to save the schedule.")
+    String saveScheduleMsg();
+
+    @DefaultStringValue("Schedule name can not be empty.")
+    String scheduleNameErrorMsg();
+
+    @DefaultStringValue("Schedule wrong time format.")
+    String scheduleTimeErrorMsg();
+
+    @DefaultStringValue("Schedule object can not be empty.")
+    String scheduleObjectErrorMsg();
 }

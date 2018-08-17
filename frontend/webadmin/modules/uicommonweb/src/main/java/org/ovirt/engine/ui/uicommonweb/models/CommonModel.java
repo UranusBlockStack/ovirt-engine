@@ -29,6 +29,7 @@ import org.ovirt.engine.ui.uicommonweb.models.autocomplete.SearchSuggestModel;
 import org.ovirt.engine.ui.uicommonweb.models.bookmarks.BookmarkEventArgs;
 import org.ovirt.engine.ui.uicommonweb.models.bookmarks.BookmarkListModel;
 import org.ovirt.engine.ui.uicommonweb.models.clusters.ClusterListModel;
+import org.ovirt.engine.ui.uicommonweb.models.configure.SchedulesListModel;
 import org.ovirt.engine.ui.uicommonweb.models.configure.SystemPermissionListModel;
 import org.ovirt.engine.ui.uicommonweb.models.configure.instancetypes.InstanceTypeListModel;
 import org.ovirt.engine.ui.uicommonweb.models.configure.roles_ui.RoleListModel;
@@ -110,6 +111,7 @@ public class CommonModel extends ListModel<SearchableListModel> {
     private final TaskListModel taskListModel;
     private final SessionListModel sessionListModel;
     private final SharedMacPoolListModel sharedMacPoolListModel;
+    private final SchedulesListModel schedulesListModel;
 
     @Inject
     private CommonModel(final DataCenterListModel dataCenterListModel,
@@ -1205,6 +1207,10 @@ public class CommonModel extends ListModel<SearchableListModel> {
             hasSelectedTags = value;
             onPropertyChanged(new PropertyChangedEventArgs("HasSelectedTags")); //$NON-NLS-1$
         }
+    }
+
+    public SchedulesListModel getSchedulesListModel() {
+        return schedulesListModel;
     }
 
 }

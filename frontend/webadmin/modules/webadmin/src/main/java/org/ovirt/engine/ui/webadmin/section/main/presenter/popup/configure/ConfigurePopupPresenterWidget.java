@@ -56,6 +56,7 @@ public class ConfigurePopupPresenterWidget extends AbstractPopupPresenterWidget<
         roleModelProvider.getModel().search();
         systemPermissionModelProvider.refresh();
         systemPermissionModelProvider.getModel().search();
+        schedulesModelProvider.getModel().search();
         if (ApplicationModeHelper.isModeSupported(ApplicationMode.VirtOnly)) {
             clusterPolicyModelProvider.getModel().search();
         } else {

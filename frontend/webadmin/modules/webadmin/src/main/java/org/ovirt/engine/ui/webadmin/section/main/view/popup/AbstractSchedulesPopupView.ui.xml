@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder
+    xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:d="urn:import:org.ovirt.engine.ui.common.widget.dialog"
+    xmlns:e="urn:import:org.ovirt.engine.ui.common.widget.editor"
+    xmlns:w="urn:import:org.ovirt.engine.ui.common.widget">
+
+    <ui:with field='constants' type='org.ovirt.engine.ui.common.CommonApplicationConstants' />
+
+    <ui:style>
+        .marginLeft {
+            margin-left: 4px;
+        }
+
+        .label {
+            width: 100px;
+            text-align: center;
+        }
+
+        .lineHeight {
+            height: 30px;
+            line-height: 30px;
+            vertical-align: middle;
+        }
+
+        .rowHeight {
+            height: 30px;
+        }
+
+        .tableHeight {
+            height: 300px;
+        }
+
+        .verticalAlign {
+            vertical-align: middle;
+        }
+
+        .fullTextBoxEditor div {
+            width: 300px;
+            float: none;
+            margin-right: 0px;
+            margin-left: 0px;
+         }
+
+        .halfTextBoxEditor div {
+            width: 130px;
+            float: none;
+            margin-right: 0px;
+            margin-left: 0px;
+            padding: 0px 0px 5px 4px;
+         }
+
+        .fullTextBoxEditor label {
+            line-height: 0px;
+            padding-left: 0px;
+            display: none;
+         }
+
+          .halfTextBoxEditor label {
+            line-height: 0px;
+            padding-left: 0px;
+            display: none;
+         }
+
+         .fullWidgetWidth {
+            width: 295px;
+         }
+
+         .halfWidgetWidth {
+            width: 140px;
+            margin: 0px 0px 0px 30px;
+         }
+
+         .searchItemsPanel {
+            width: 295px;
+            height: 300px;
+            border: 1px solid #c9caca;
+        }
+    </ui:style>
+
+    <d:SimpleDialogPanel width="450px" height="500px">
+        <d:content>
+            <g:VerticalPanel verticalAlignment="ALIGN_MIDDLE">
+                <g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE" addStyleNames="{style.rowHeight}">
+                    <g:Label text="{constants.nameSchedule}" addStyleNames="{style.label}"/>
+                    <e:TextBoxChanger ui:field="nameScheduleText" addStyleNames="{style.fullWidgetWidth} {style.marginLeft}"/>
+                </g:HorizontalPanel>
+
+                <g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE" addStyleNames="{style.rowHeight}">
+                    <g:Label text="{constants.scheduleSchedule}" addStyleNames="{style.label}"/>
+                    <e:ListModelListBoxEditor ui:field="scheduleScheduleEditor" addStyleNames="{style.fullTextBoxEditor}" />
+                </g:HorizontalPanel>
+
+                <g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE" addStyleNames="{style.tableHeight}">
+                    <g:Label text="{constants.objectSchedule}" addStyleNames="{style.label}"/>
+                    <g:ScrollPanel ui:field="tableScrollPanel" addStyleNames="{style.searchItemsPanel} {style.marginLeft}">
+                        <e:EntityModelCellTable ui:field="table" />
+                    </g:ScrollPanel>
+                </g:HorizontalPanel>
+
+                <g:HorizontalPanel verticalAlignment="ALIGN_MIDDLE" addStyleNames="{style.rowHeight}">
+                    <g:Label text="{constants.strategySchedule}" addStyleNames="{style.label}"/>
+                    <e:ListModelListBoxEditor ui:field="strategyScheduleEditor" addStyleNames="{style.halfTextBoxEditor}"/>
+                    <e:TextBoxChanger ui:field="strategyScheduleText" addStyleNames="{style.halfWidgetWidth}"/>
+                </g:HorizontalPanel>
+            </g:VerticalPanel>
+        </d:content>
+    </d:SimpleDialogPanel>
+
+</ui:UiBinder>

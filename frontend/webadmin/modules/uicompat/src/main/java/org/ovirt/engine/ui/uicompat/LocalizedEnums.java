@@ -1115,4 +1115,26 @@ public interface LocalizedEnums extends ConstantsWithLookup {
     String NumaTuneMode___INTERLEAVE();
 
     String ImportSource___EXPORT_DOMAIN();
+
+    String ScheduleType___VmBackup();
+    String ScheduleType___VmSnapshot();
+    String ScheduleType___VmTemplate();
+    String ScheduleType___VmRun();
+    String ScheduleType___VmSuspend();
+    String ScheduleType___VmStop();
+    String ScheduleType___VmReboot();
+    String ScheduleType___VDSStart();
+    String ScheduleType___VDSStop();
+    String ScheduleType___VDSReboot();
+    String ScheduleType___VDSMaintenance();
+    String ScheduleType___VDSActivate();
+    String ScheduleType___Time();
+    String ScheduleType___Day();
+    String ScheduleType___Month();
+    String ScheduleType___Weekly();
+    String ScheduleType___PleaseSelect();
+    String ScheduleType___SearchVM();
+    String ScheduleType___SearchVDS();
+    String ScheduleType___Name();
+    String ScheduleType___Status();
 }

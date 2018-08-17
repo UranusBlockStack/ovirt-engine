@@ -4276,4 +4276,7 @@ public interface ApplicationConstants extends CommonApplicationConstants {
 
     @DefaultStringValue("Warning : Recommendations for geo-replication not met -")
     String geoReplicationRecommendedConfigViolation();
+    
+    @DefaultStringValue("Schedule")
+    String configureScheduleTabLabel();
 }

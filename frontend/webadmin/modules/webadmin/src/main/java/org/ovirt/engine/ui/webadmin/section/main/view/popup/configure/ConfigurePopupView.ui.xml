@@ -39,6 +39,15 @@
                     </t:DialogTab>
                 </t:tab>
                 <t:tab>
+                    <t:DialogTab ui:field="schedulesTab">
+                        <t:content>
+                            <g:FlowPanel>
+                                <g:SimplePanel addStyleNames="{style.panel}" ui:field="schedulesTabPanel" />
+                            </g:FlowPanel>
+                        </t:content>
+                    </t:DialogTab>
+                </t:tab>
+                <t:tab>
                     <t:DialogTab ui:field="instanceTypesTab">
                         <t:content>
                             <g:SimplePanel addStyleNames="{style.panel}" ui:field="instanceTypesTabPanel" />

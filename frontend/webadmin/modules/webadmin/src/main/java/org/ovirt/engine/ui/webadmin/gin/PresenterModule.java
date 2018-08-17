@@ -523,6 +523,8 @@ import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.storage.Storage
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.storage.StorageImageUploadPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.view.popup.storage.StorageImageRenamePopupView;
 import org.ovirt.engine.ui.webadmin.section.main.view.popup.storage.StorageImageUploadPopupView;
+import org.ovirt.engine.ui.webadmin.section.main.presenter.SchedulesPopupPresenterWidget;
+import org.ovirt.engine.ui.webadmin.section.main.view.popup.SchedulesPopupView;
 
 /**
  * GIN module containing WebAdmin GWTP presenter bindings.
@@ -1607,6 +1609,11 @@ public class PresenterModule extends BasePresenterModule {
         bindPresenterWidget(StorageImageRenamePopupPresenterWidget.class,
                 StorageImageRenamePopupPresenterWidget.ViewDef.class,
                 StorageImageRenamePopupView.class);
+
+        // Schedules
+        bindPresenterWidget(SchedulesPopupPresenterWidget.class,
+                SchedulesPopupPresenterWidget.ViewDef.class,
+                SchedulesPopupView.class);
 
         // Storage Image Upload
         bindPresenterWidget(StorageImageUploadPopupPresenterWidget.class,

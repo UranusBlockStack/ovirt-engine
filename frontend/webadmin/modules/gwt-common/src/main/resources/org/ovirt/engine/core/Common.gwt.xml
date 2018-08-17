@@ -81,6 +81,8 @@
         <include name="common/businessentities/network/VmNic.java" />
         <include name="common/businessentities/network/ExternalSubnet.java" />
 
+        <include name="common/businessentities/Schedule.java" />
+        <include name="common/businessentities/ScheduleType.java" />
         <include name="common/businessentities/Commented.java" />
         <include name="common/businessentities/Reasoned.java" />
         <include name="common/businessentities/IVdcQueryable.java" />

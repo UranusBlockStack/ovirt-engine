@@ -51,6 +51,7 @@ import org.ovirt.engine.ui.webadmin.uicommon.model.SystemPermissionModelProvider
 import org.ovirt.engine.ui.webadmin.uicommon.model.SystemTreeModelProvider;
 import org.ovirt.engine.ui.webadmin.uicommon.model.TagModelProvider;
 import org.ovirt.engine.ui.webadmin.uicommon.model.TaskModelProvider;
+import org.ovirt.engine.ui.webadmin.uicommon.model.SchedulesModelProvider
 
 import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
@@ -131,6 +132,9 @@ public class UiCommonModule extends BaseUiCommonModule {
 
         // cpu profiles permissions
         bind(CpuProfilePermissionModelProvider.class).in(Singleton.class);
+    
+        // SchedulesListModel
+        bind(SchedulesModelProvider.class).asEagerSingleton();
     }
 
     void bindIntegration() {

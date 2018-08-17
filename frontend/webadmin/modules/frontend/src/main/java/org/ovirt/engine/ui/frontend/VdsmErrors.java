@@ -5,6 +5,8 @@ import com.google.gwt.i18n.client.ConstantsWithLookup;
 public interface VdsmErrors extends ConstantsWithLookup {
     String BlockDeviceActionError();
 
+    String SCHEDULE_SAVE_FAILED();
+
     String BlockStorageDomainMasterFSCKError();
 
     String BlockStorageDomainMasterMountError();
