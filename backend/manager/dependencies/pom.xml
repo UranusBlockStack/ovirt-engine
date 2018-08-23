@@ -17,9 +17,24 @@
 
   <name>oVirt Engine dependencies</name>
 
+
+  <dependencies>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>${json.version}</version>
+    </dependency>
+
+  </dependencies>
+
   <modules>
     <module>common</module>
     <module>tools</module>
+    <module>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <moduleName>org.json</moduleName>
+    </module>
   </modules>
 
 </project>

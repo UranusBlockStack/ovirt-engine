@@ -33,6 +33,7 @@ import org.ovirt.engine.core.common.businessentities.StorageDomainDynamic;
 import org.ovirt.engine.core.common.businessentities.StorageDomainStatic;
 import org.ovirt.engine.core.common.businessentities.StorageDomainStatus;
 import org.ovirt.engine.core.common.businessentities.StorageDomainType;
+import org.ovirt.engine.core.common.businessentities.Schedule;
 import org.ovirt.engine.core.common.businessentities.StoragePool;
 import org.ovirt.engine.core.common.businessentities.StoragePoolIsoMap;
 import org.ovirt.engine.core.common.businessentities.VdsDynamic;
@@ -197,6 +198,7 @@ public class DbFacade {
             put(VmStatic.class, VmStaticDAO.class);
             put(VmStatistics.class, VmStatisticsDAO.class);
             put(BaseDisk.class, BaseDiskDao.class);
+            put(Schedule.class, SchedulesDao.class);
             put(DiskImage.class, BaseDiskDao.class);
             put(DiskImageDynamic.class, DiskImageDynamicDAO.class);
             put(VmNic.class, VmNicDao.class);
@@ -1237,6 +1239,14 @@ public class DbFacade {
      */
     public DiskProfileDao getDiskProfileDao() {
         return getDao(DiskProfileDao.class);
+    }
+
+    /**
+     * Returns the singleton instance of {@link SchedulesDao}.
+     * @return the dao
+     */
+    public SchedulesDao getSchedulesDao() {
+        return getDao(SchedulesDao.class);
     }
 
     /**

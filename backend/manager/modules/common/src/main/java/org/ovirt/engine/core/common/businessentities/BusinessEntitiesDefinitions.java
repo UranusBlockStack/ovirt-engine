@@ -102,4 +102,7 @@ public final class BusinessEntitiesDefinitions {
 
     // SPICE
     public static final int SPICE_PROXY_ADDR_SIZE = 255;
+
+    // Schedule
+    public static final int SCHEDULE_NAME_SIZE = 255;
 }
