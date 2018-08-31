@@ -34,4 +34,6 @@ Dependencies: asm.asm,
  org.springframework,
  com.woorea.openstack.sdk services,
  org.yaml.snakeyaml,
+ org.apache.sshd,
+ org.json,
  org.jboss.resteasy.resteasy-jaxrs

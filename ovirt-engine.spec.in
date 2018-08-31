@@ -798,6 +798,7 @@ common/org/springframework/main/spring-instrument.jar springframework/spring-ins
 common/org/springframework/main/spring-jdbc.jar springframework/spring-jdbc.jar
 common/org/springframework/main/spring-tx.jar springframework/spring-tx.jar
 common/org/tukaani/xz/main/xz.jar
+org/json/main/json.jar
 %endif
 %endif
 %if 0%{?rhel}
