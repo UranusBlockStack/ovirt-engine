@@ -650,6 +650,23 @@ CREATE TABLE job_subject_entity (
 );
 
 
+-- ----------------------------------------------------------------------
+--  table schedules
+-- ----------------------------------------------------------------------
+
+CREATE TABLE schedules
+(
+  schedule_id uuid NOT NULL,
+  schedule_name VARCHAR(256) NOT NULL,
+  schedule_type VARCHAR(32) NOT NULL,
+  schedule_object text,
+  schedule_strategy text,
+   _create_date TIMESTAMP WITH TIME ZONE default LOCALTIMESTAMP,
+   _update_date TIMESTAMP WITH TIME ZONE default NULL,
+  CONSTRAINT PK_schedule_id PRIMARY KEY (schedule_id)
+)
+WITH OIDS;
+
 --
 -- Name: lun_storage_server_connection_map; Type: TABLE; Schema: public; Owner: engine; Tablespace:
 --
