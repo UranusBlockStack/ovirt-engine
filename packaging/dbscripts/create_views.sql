@@ -1314,6 +1314,7 @@ SELECT
     vds_static.vds_spm_priority AS vds_spm_priority,
     vds_dynamic.hooks AS hooks,
     vds_dynamic.status AS status,
+    vds_static.flash_cache as flash_cache,
     vds_dynamic.cpu_cores AS cpu_cores,
     vds_dynamic.cpu_threads AS cpu_threads,
     vds_dynamic.cpu_model AS cpu_model,

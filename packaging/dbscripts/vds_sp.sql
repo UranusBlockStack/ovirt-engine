@@ -424,7 +424,8 @@ Create or replace FUNCTION InsertVdsStatic(
     v_ssh_port INTEGER,
     v_ssh_username VARCHAR(255),
     v_disable_auto_pm BOOLEAN,
-    v_host_provider_id UUID)
+    v_host_provider_id UUID,
+    v_flash_cache BOOLEAN)
 RETURNS VOID
 
    AS $procedure$
@@ -468,7 +469,8 @@ Create or replace FUNCTION UpdateVdsStatic(v_host_name VARCHAR(255),
     v_ssh_port INTEGER,
     v_ssh_username VARCHAR(255),
     v_disable_auto_pm BOOLEAN,
-    v_host_provider_id UUID)
+    v_host_provider_id UUID,
+    v_flash_cache BOOLEAN)
 RETURNS VOID
 
 	--The [vds_static] table doesn't have a timestamp column. Optimistic concurrency logic cannot be generated
@@ -798,6 +800,29 @@ BEGIN
           FROM vds
           WHERE vds_group_id = v_vds_group_id;
       end if;
+    END;
+    RETURN;
+END; $procedure$
+LANGUAGE plpgsql;
+
+
+Create or replace FUNCTION GetVdsByVdsGroupIdWithCache(v_vds_group_id UUID, v_user_id UUID, v_is_filtered boolean) RETURNS SETOF vds STABLE
+   AS $procedure$
+BEGIN
+    -- this sp returns all vds with flash cache
+   BEGIN
+    if (v_is_filtered) then
+        RETURN QUERY SELECT DISTINCT (rec).*
+        FROM fn_db_mask_object('vds') as q (rec vds)
+        WHERE (rec).vds_group_id = v_vds_group_id and (rec).flash_cache = true
+        AND EXISTS (SELECT 1
+            FROM   user_vds_permissions_view
+            WHERE  user_id = v_user_id AND entity_id = (rec).vds_id);
+    else
+        RETURN QUERY SELECT DISTINCT vds.*
+        FROM vds
+        WHERE vds_group_id = v_vds_group_id and flash_cache = true;
+    end if;
     END;
     RETURN;
 END; $procedure$
